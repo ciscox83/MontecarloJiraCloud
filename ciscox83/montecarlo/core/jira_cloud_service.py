@@ -1,6 +1,7 @@
 import logging
 import requests
-import properties
+import ciscox83.user_properties as user_properties
+import ciscox83.global_properties as properties
 
 
 class JiraCloudService:
@@ -8,16 +9,16 @@ class JiraCloudService:
 
     def __init__(self):
         self.url = "https://" \
-              + properties.account \
+                   + user_properties.my_jira_account \
               + ".atlassian.net/rest/api/" \
               + properties.jira_api_version \
               + "/project/" \
-              + properties.my_jira_project
+                   + user_properties.my_jira_project
 
         self.headers = {
             "Accept": "application/json",
             "Content-Type": "application/json",
-            "Authorization": properties.my_jira_auth
+            "Authorization": "Basic " + user_properties.my_jira_auth_token
         }
 
     def get_my_project(self):
