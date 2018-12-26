@@ -5,7 +5,7 @@ from ciscox83.montecarlo.core import jira_cloud_service
 class MontecarloIntegrationTest(unittest.TestCase):
     jira = jira_cloud_service.JiraCloudService()
 
-    def test_can_connect_with_jira_cloud(self):
+    def test_can_retrieve_my_project(self):
         response = self.jira.get_my_project()
 
         # print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
