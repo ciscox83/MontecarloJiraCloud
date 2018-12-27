@@ -13,7 +13,7 @@ class MontecarloUnitTest(unittest.TestCase):
 
     def test_can_get_a_week_ago_date_in_jira_format(self):
         today = "2018/12/27"
-        a_week_ago = self.date_manager.a_week_ago(today)
+        a_week_ago = self.date_manager.iteration_start_date(today)
         self.assertEqual("2018/12/20 00:00", a_week_ago)
 
 
