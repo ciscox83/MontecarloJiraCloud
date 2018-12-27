@@ -13,3 +13,11 @@ class DateManager:
         a_week_ago = today - timedelta(days=7)
         a_week_ago = a_week_ago.strftime("%Y/%m/%d %H:%M:%S")[:-9]
         return a_week_ago + " 00:00"
+
+    @staticmethod
+    def iteration_end_date(date):
+        try:
+            datetime.strptime(date, '%Y/%m/%d')
+        except ValueError:
+            raise ValueError("Incorrect data format, should be yyy/mm/dd")
+        return date + " 23:59:59"

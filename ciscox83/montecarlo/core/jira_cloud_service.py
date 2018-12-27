@@ -27,3 +27,6 @@ class JiraCloudService:
             self.url,
             headers=self.headers
         )
+
+    # # project = MOB AND status = Done AND updated >= "2018/12/13 00:00" AND updated <= "2018/12/20 23:59"
+    # def get_number_of_tasks_completed_in_the_range(self, date_start, date_end):
