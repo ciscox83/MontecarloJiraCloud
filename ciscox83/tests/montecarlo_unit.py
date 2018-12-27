@@ -1,5 +1,5 @@
 import unittest
-from ciscox83.montecarlo.core.datemanager import DateManager
+from ciscox83.montecarlo.core.date_manager import DateManager
 
 
 class MontecarloUnitTest(unittest.TestCase):
