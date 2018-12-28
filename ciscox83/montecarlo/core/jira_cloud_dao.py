@@ -6,7 +6,7 @@ import ciscox83.global_properties as properties
 from ciscox83.montecarlo.core.date_manager import DateManager
 
 
-class JiraCloudService:
+class JiraCloudDao:
     logger = logging.getLogger()
 
     def __init__(self):
