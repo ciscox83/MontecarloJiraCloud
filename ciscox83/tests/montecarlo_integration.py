@@ -13,9 +13,9 @@ class MontecarloIntegrationTest(unittest.TestCase):
 
     def test_that_can_retrieve_number_of_items_completed_in_last_iteration(self):
         epic = self.jira.get_random_epic_key()
-        today = datetime.today().strftime("%d/%m/%Y")
-        n = self.jira.get_number_of_completed_items_in_iteration(today, epic)
-        print str(n) + " item(s) completed in the last iteration up to " + today + " on the epic " + epic
+        end_iteration_date = datetime.today().strftime("%d/%m/%Y")
+        n = self.jira.get_number_of_completed_items_in_iteration(end_iteration_date, epic)
+        print str(n) + " item(s) completed in the last iteration up to " + end_iteration_date + " on the epic " + epic
         self.assertGreaterEqual(n, 0,)
 
 if __name__ == '__main__':
