@@ -1,11 +1,11 @@
 import unittest
 from datetime import datetime
-from ciscox83.montecarlo.core import jira_cloud_service
+from ciscox83.montecarlo.core import jira_cloud_dao
 
 
 # print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
 class MontecarloIntegrationTest(unittest.TestCase):
-    jira = jira_cloud_service.JiraCloudService()
+    jira = jira_cloud_dao.JiraCloudService()
 
     def test_can_retrieve_my_project(self):
         response = self.jira.get_my_project()
