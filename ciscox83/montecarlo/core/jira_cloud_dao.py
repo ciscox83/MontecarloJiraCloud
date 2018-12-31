@@ -1,13 +1,12 @@
-import logging
 import requests
 import json
 import ciscox83.user_properties as user_properties
 import ciscox83.global_properties as properties
 from ciscox83.montecarlo.core.date_manager import DateManager
+from ciscox83.montecarlo.core.iterations import Iteration
 
 
 class JiraCloudDao:
-    logger = logging.getLogger()
 
     def __init__(self):
         self.url = "https://" \
@@ -31,7 +30,7 @@ class JiraCloudDao:
             headers=self.headers
         )
 
-    def get_number_of_completed_items_in_iteration(self, date_end, epic_link):
+    def get_iteration(self, date_end, epic_link):
         iteration_start_date = DateManager.get_iteration_start_date(date_end)
         iteration_end_date = DateManager.adjust_iteration_end_date(date_end)
         url = self.url \
@@ -47,8 +46,8 @@ class JiraCloudDao:
             url,
             headers=self.headers
         )
-        data = json.loads(response.text)
-        return len(data['issues'])
+        response_data = json.loads(response.text)
+        return Iteration(len(response_data['issues']), iteration_start_date, iteration_end_date)
 
     #
     # Used for integration tests purposes

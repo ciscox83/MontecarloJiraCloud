@@ -7,11 +7,14 @@ class DateManager:
         pass
 
     @staticmethod
-    def adjust_iteration_end_date(date):
+    def adjust_iteration_end_date(input_date):
         try:
-            date = datetime.strptime(date, "%d/%m/%Y")
+            date = datetime.strptime(input_date, "%Y/%m/%d")
         except ValueError:
-            raise ValueError("Incorrect data format, should be yyyy/mm/dd but it's: " + date)
+            try:
+                date = datetime.strptime(input_date, "%Y/%m/%d %H:%M")
+            except ValueError:
+                raise ValueError("Incorrect data format: " + input_date)
         return date.strftime("%Y/%m/%d %H:%M")[:-6] + " 23:59"
 
     # we assume for simplicity that iterations are 1 every week
