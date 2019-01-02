@@ -20,7 +20,7 @@ class MontecarloUnitTest(unittest.TestCase):
         a_week_ago = self.date_manager.get_iteration_start_date("2018/12/27")
         self.assertEqual("2018/12/20 00:00", a_week_ago)
 
-    def test_that_can_retrieve_number_of_items_completed_in_last_n_iteration(self):
+    def test_that_can_retrieve_number_of_items_completed_in_last_n_iterations(self):
         jira_cloud_dao_mock = Mock()
         jira_cloud_service = JiraCloudService(jira_cloud_dao_mock)
         jira_cloud_dao_mock.get_iteration.side_effect = [
