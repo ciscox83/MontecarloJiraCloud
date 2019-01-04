@@ -4,6 +4,7 @@ from unittest.mock import Mock
 from ciscox83.montecarlo.core.date_manager import DateManager
 from ciscox83.montecarlo.core.iterations import Iteration
 from ciscox83.montecarlo.core.jira_cloud_service import JiraCloudService
+from ciscox83.montecarlo.core.montecarlo import Montecarlo
 
 
 class MontecarloUnitTest(unittest.TestCase):
@@ -51,6 +52,12 @@ class MontecarloUnitTest(unittest.TestCase):
                 self.assertEqual(iteration.get_completed(), 9)
                 self.assertEqual(iteration.get_start_date(), "2018/12/21 00:00")
                 self.assertEqual(iteration.get_end_date(), "2018/12/28 23:59")
+
+        def test_that_can_get_real_cycle_times(self):
+            montecarlo = Montecarlo()
+            items_completed = {10, 2, 6, 3, 5, 5, 4, 6, 11, 1}
+            cycle_times = montecarlo.get_real_cycle_times(items_completed)
+
 
 if __name__ == '__main__':
     unittest.main()
