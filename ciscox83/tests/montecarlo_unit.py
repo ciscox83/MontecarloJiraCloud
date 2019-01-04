@@ -53,10 +53,10 @@ class MontecarloUnitTest(unittest.TestCase):
                 self.assertEqual(iteration.get_start_date(), "2018/12/21 00:00")
                 self.assertEqual(iteration.get_end_date(), "2018/12/28 23:59")
 
-        def test_that_can_get_real_cycle_times(self):
-            montecarlo = Montecarlo()
-            items_completed = {10, 2, 6, 3, 5, 5, 4, 6, 11, 1}
-            cycle_times = montecarlo.get_real_cycle_times(items_completed)
+    def test_that_can_get_real_cycle_times(self):
+        montecarlo = Montecarlo()
+        items_completed = {10, 2, 6, 3, 5, 5, 4, 6, 11, 1}
+        cycle_times = montecarlo.get_real_cycle_times(items_completed)
 
 
 if __name__ == '__main__':
