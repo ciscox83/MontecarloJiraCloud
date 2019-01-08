@@ -13,7 +13,8 @@ class JiraCloudService:
         return self.__normalise(iterations)
 
 
-    def __normalise(self, iterations):
+    @staticmethod
+    def __normalise(iterations):
         iterations.reverse()
 
         for i, iteration in enumerate(iterations):
