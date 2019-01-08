@@ -15,12 +15,9 @@ class JiraCloudService:
 
     def __normalise(self, iterations):
         iterations.reverse()
-        return iterations
-        # normalized_iterations = iterations.reverse()
-        # i = 1
-        # for iteration in iterations:
-        #     if iteration.get_completed() == 0:
-        #         del normalized_iterations[i]
-        #         i = i + 1
-        #     else:
-        #         return normalized_iterations.reverse()
+
+        for i, iteration in enumerate(iterations):
+            if iteration.get_completed() == 0:
+                iterations.pop(i)
+            else:
+                return iterations
