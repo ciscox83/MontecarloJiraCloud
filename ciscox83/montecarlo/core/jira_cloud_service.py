@@ -13,8 +13,7 @@ class JiraCloudService:
         return self.__normalise(iterations)
 
 
-    # Remove the tail if not items have been completed
-    # This assumes that the data window selected was probably too big
+    # Remove the iterations with no delivery considering them exceptions (holidays, etc.)
     @staticmethod
     def __normalise(iterations):
         iterations.reverse()
@@ -22,5 +21,4 @@ class JiraCloudService:
         for i, iteration in enumerate(iterations):
             if iteration.get_completed() == 0:
                 iterations.pop(i)
-            else:
-                return iterations
+        return iterations
