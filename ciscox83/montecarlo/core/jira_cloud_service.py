@@ -13,6 +13,8 @@ class JiraCloudService:
         return self.__normalise(iterations)
 
 
+    # Remove the tail if not items have been completed
+    # This assumes that the data window selected was probably too big
     @staticmethod
     def __normalise(iterations):
         iterations.reverse()
