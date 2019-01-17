@@ -1,3 +1,3 @@
-jira_api_version = '2'
-iteration_length = 5
-montecarlo_iterations = 1000
+JIRA_API_VERSION = '2'
+ITERATION_LENGTH = 5
+MONTECARLO_ITERATIONS = 1000

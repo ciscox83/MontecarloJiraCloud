@@ -1,7 +1,7 @@
 import unittest
 from decimal import *
 
-from ciscox83.global_properties import montecarlo_iterations
+from ciscox83.global_properties import MONTECARLO_ITERATIONS
 from ciscox83.montecarlo.core.iterations import Iteration
 from ciscox83.montecarlo.core.montecarlo import Montecarlo
 
@@ -32,7 +32,7 @@ class MontecarloUnitTest(unittest.TestCase):
         montecarlo = Montecarlo(iterations)
         cycle_times_averages = montecarlo.run()
         num_of_averages_cycle_times = len(cycle_times_averages)
-        self.assertEqual(num_of_averages_cycle_times, montecarlo_iterations)
+        self.assertEqual(num_of_averages_cycle_times, MONTECARLO_ITERATIONS)
         for i in range(0, num_of_averages_cycle_times, 1):
             self.assertGreaterEqual(cycle_times_averages[i], Decimal(0.56).__round__(2))
             self.assertLessEqual(cycle_times_averages[i], Decimal(0.71).__round__(2))

@@ -1,7 +1,7 @@
 from decimal import *
 from random import randrange
 
-from ciscox83.global_properties import montecarlo_iterations
+from ciscox83.global_properties import MONTECARLO_ITERATIONS
 
 
 class Montecarlo:
@@ -24,7 +24,7 @@ class Montecarlo:
     def run(self):
         cycle_time_averages = []
         num_of_real_cycle_times = len(self.real_cycle_times)
-        for x in range(0, montecarlo_iterations, 1):
+        for x in range(0, MONTECARLO_ITERATIONS, 1):
             total_days = 0
             for y in range(0, num_of_real_cycle_times, 1):
                 i = randrange(num_of_real_cycle_times)

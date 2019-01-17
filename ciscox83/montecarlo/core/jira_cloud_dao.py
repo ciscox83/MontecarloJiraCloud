@@ -12,7 +12,7 @@ class JiraCloudDao:
         self.url = "https://" \
                    + user_properties.my_jira_account \
                    + ".atlassian.net/rest/api/" \
-                   + properties.jira_api_version
+                   + properties.JIRA_API_VERSION
 
         self.headers = {
             "Accept": "application/json",
