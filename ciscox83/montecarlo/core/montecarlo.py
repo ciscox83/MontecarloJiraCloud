@@ -11,7 +11,6 @@ class Montecarlo:
         self.real_cycle_times = self.__compute_real_cycle_times()
         pass
 
-
     def get_real_cycle_times(self):
         return self.real_cycle_times
 
@@ -22,7 +21,7 @@ class Montecarlo:
             cycle_times.append(Decimal(cycle_time).__round__(2))
         return cycle_times
 
-    def run(self, pending_items):
+    def compute_average_iterations_forecast(self, pending_items):
         average_iterations = []
         num_of_real_cycle_times = len(self.real_cycle_times)
         for x in range(0, MONTECARLO_ITERATIONS, 1):

@@ -32,7 +32,7 @@ class MontecarloUnitTest(unittest.TestCase):
         ]
 
         montecarlo = Montecarlo(past_iterations)
-        average_iterations = montecarlo.run(pending_items)
+        average_iterations = montecarlo.compute_average_iterations_forecast(pending_items)
         num_of_average_iterations = len(average_iterations)
         self.assertEqual(num_of_average_iterations, MONTECARLO_ITERATIONS)
         for i in range(0, num_of_average_iterations, 1):
