@@ -20,3 +20,11 @@ class ProjectPivot:
 
     def get_pivots(self):
         return self.pivots
+
+    def get_cumulative_percentages(self):
+        cumulative_percentages = [self.pivots[0].get_percentage()]
+        for i in range(1, len(self.pivots), 1):
+            prev_percentage = cumulative_percentages[i - 1]
+            current_percentage = self.pivots[i].get_percentage()
+            cumulative_percentages.append(prev_percentage + current_percentage)
+        return cumulative_percentages

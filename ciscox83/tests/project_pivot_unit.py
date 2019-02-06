@@ -19,5 +19,13 @@ class ProjectPivotUnitTest(unittest.TestCase):
             self.assertEqual(pivots[i].get_count(), expected_count[i])
             self.assertEqual(pivots[i].get_percentage(), expected_percentages[i])
 
+    def test_can_compute_cumulative_percentage(self):
+        simulated_iterations = [4, 2, 3, 3, 3, 1, 1]
+        project_pivot = ProjectPivot(simulated_iterations)
+        cumulative_percentages = project_pivot.get_cumulative_percentages()
+
+        expected_cumulative_percentages = [29, 43, 86, 100]
+        self.assertEqual(cumulative_percentages, expected_cumulative_percentages)
+
 if __name__ == '__main__':
     unittest.main()
