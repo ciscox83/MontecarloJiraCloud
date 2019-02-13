@@ -28,11 +28,11 @@ class ProjectPivotUnitTest(unittest.TestCase):
         self.assertEqual(cumulative_percentages, expected_cumulative_percentages)
 
     def test_can_normalise_cumulative_percentages(self):
-        simulated_iterations = [4, 2, 3, 3, 3, 1, 1]
+        simulated_iterations = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 8, 9, 10]
         project_pivot = ProjectPivot(simulated_iterations)
 
         cumulative_percentages = project_pivot.get_cumulative_percentages()
-        expected_normalisation = [0.87, 1.29, 2.58, 3.0]
+        expected_normalisation = [0.2, 0.6, 1.2, 2, 3, 3.8, 4.4, 4.6, 4.8, 5]
         actual_normalisations = project_pivot.normalise(cumulative_percentages)
 
         for i in range(0, len(actual_normalisations) - 1):
