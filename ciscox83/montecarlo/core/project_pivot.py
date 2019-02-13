@@ -1,9 +1,11 @@
 from ciscox83.montecarlo.core.project_pivot_entry import ProjectPivotEntry
 
 
+
 class ProjectPivot:
-    def __init__(self, simulated_durations):
-        self.pivots = self.__compute_project_pivots(simulated_durations)
+    def __init__(self, simulated_iterations):
+        self.simulated_iterations = simulated_iterations
+        self.pivots = self.__compute_project_pivots(simulated_iterations)
         pass
 
     @staticmethod
@@ -28,3 +30,18 @@ class ProjectPivot:
             current_percentage = self.pivots[i].get_percentage()
             cumulative_percentages.append(prev_percentage + current_percentage)
         return cumulative_percentages
+
+    def normalise(self, cumulative_percentages):
+        max_number_of_occurrences = self.get_max_number_of_occurrences(self.simulated_iterations)
+        normalised_cumulative_percentages = []
+        for i in range (0, len(cumulative_percentages), 1):
+            normalised_cumulative_percentages.append(max_number_of_occurrences / 100 * cumulative_percentages[i])
+        return normalised_cumulative_percentages
+
+    def get_max_number_of_occurrences(self, iterations):
+        max_number_of_occurrences = 0
+        for percentage in iterations:
+            count = iterations.count(percentage)
+            if count > max_number_of_occurrences:
+                max_number_of_occurrences = count
+        return max_number_of_occurrences
