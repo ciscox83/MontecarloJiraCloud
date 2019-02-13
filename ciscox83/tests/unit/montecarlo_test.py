@@ -2,7 +2,7 @@ import unittest
 from decimal import *
 
 from ciscox83.global_properties import MONTECARLO_ITERATIONS
-from ciscox83.montecarlo.core.iterations import Iteration
+from ciscox83.montecarlo.core.iteration import Iteration
 from ciscox83.montecarlo.core.montecarlo import Montecarlo
 
 

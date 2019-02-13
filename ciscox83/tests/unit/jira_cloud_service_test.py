@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock
 
-from ciscox83.montecarlo.core.iterations import Iteration
+from ciscox83.montecarlo.core.iteration import Iteration
 from ciscox83.montecarlo.core.jira_cloud_service import JiraCloudService
 
 class JiraCloudServiceUnitTest(unittest.TestCase):
