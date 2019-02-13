@@ -2,7 +2,7 @@ from decimal import *
 from random import randrange
 
 from ciscox83.global_properties import MONTECARLO_ITERATIONS
-from ciscox83.global_properties import ITERATION_DURATION
+from ciscox83.global_properties import WORKING_DAYS_IN_ITERATION
 
 
 class Montecarlo:
@@ -17,7 +17,7 @@ class Montecarlo:
     def __compute_real_cycle_times(self):
         cycle_times = []
         for iteration in self.iterations:
-            cycle_time = 5.0 / iteration.get_completed()
+            cycle_time = WORKING_DAYS_IN_ITERATION / iteration.get_completed()
             cycle_times.append(Decimal(cycle_time).__round__(2))
         return cycle_times
 
@@ -30,6 +30,6 @@ class Montecarlo:
                 i = randrange(num_of_real_cycle_times)
                 total_days = total_days + self.real_cycle_times[i]
             average_cycle_time = total_days / num_of_real_cycle_times
-            average_iteration = round(pending_items * average_cycle_time / ITERATION_DURATION)
+            average_iteration = round(pending_items * average_cycle_time / WORKING_DAYS_IN_ITERATION)
             average_iterations.append(average_iteration)
         return average_iterations
