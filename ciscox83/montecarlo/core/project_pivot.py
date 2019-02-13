@@ -38,7 +38,8 @@ class ProjectPivot:
             normalised_cumulative_percentages.append(round(max_number_of_occurrences / 100 * cumulative_percentages[i], 1))
         return normalised_cumulative_percentages
 
-    def get_max_number_of_occurrences(self, iterations):
+    @staticmethod
+    def get_max_number_of_occurrences(iterations):
         max_number_of_occurrences = 0
         for percentage in iterations:
             count = iterations.count(percentage)
