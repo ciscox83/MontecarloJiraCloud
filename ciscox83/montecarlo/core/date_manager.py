@@ -1,5 +1,6 @@
 from datetime import datetime
 from datetime import timedelta
+from ciscox83.global_properties import WORKING_DAYS_IN_ITERATION
 
 
 class DateManager:
@@ -17,11 +18,12 @@ class DateManager:
                 raise ValueError("Incorrect data format: " + input_date)
         return date.strftime("%Y/%m/%d %H:%M")[:-6] + " 23:59"
 
-    # TODO: we assume for simplicity that iterations are 1 every week
     @staticmethod
     def get_iteration_start_date(end_date):
         iteration_end_date = datetime.strptime(DateManager.adjust_iteration_end_date(end_date), "%Y/%m/%d %H:%M")
-        a_week_ago = iteration_end_date - timedelta(days=7)
+        weeks = WORKING_DAYS_IN_ITERATION / 5
+        days = WORKING_DAYS_IN_ITERATION + weeks * 2
+        a_week_ago = iteration_end_date - timedelta(days=days)
         a_week_ago = a_week_ago.strftime("%Y/%m/%d %H:%M")[:-6]
         return a_week_ago + " 00:00"
 
