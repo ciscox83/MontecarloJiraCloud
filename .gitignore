@@ -1,3 +1,4 @@
 .idea
 *.pyc
 ciscox83/user_properties.py
+/ciscox83/tests/unit/plot_test.py

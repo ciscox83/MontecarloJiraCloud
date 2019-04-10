@@ -8,7 +8,7 @@ from ciscox83.montecarlo.core.montecarlo import Montecarlo
 
 class MontecarloUnitTest(unittest.TestCase):
 
-    def test_that_can_get_real_cycle_times(self):
+    def test_that_can_compute_real_cycle_times(self):
         iterations = [
             Iteration(7, "2018/12/08 00:00", "2018/12/15 23:59"),
             Iteration(8, "2018/12/15 00:00", "2018/12/21 23:59"),
@@ -16,7 +16,7 @@ class MontecarloUnitTest(unittest.TestCase):
         ]
 
         montecarlo = Montecarlo(iterations)
-        cycle_times = montecarlo.get_real_cycle_times()
+        cycle_times = montecarlo.real_cycle_times
         self.assertEqual(cycle_times,
                          [Decimal(0.71).__round__(2),
                           Decimal(0.62).__round__(2),

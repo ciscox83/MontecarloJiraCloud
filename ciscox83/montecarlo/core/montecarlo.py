@@ -11,9 +11,6 @@ class Montecarlo:
         self.real_cycle_times = self.__compute_real_cycle_times()
         pass
 
-    def get_real_cycle_times(self):
-        return self.real_cycle_times
-
     def __compute_real_cycle_times(self):
         cycle_times = []
         for iteration in self.iterations:
