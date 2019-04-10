@@ -3,10 +3,10 @@ from decimal import *
 
 from ciscox83.global_properties import MONTECARLO_ITERATIONS
 from ciscox83.montecarlo.core.iteration import Iteration
-from ciscox83.montecarlo.core.epic_simulation import EpicSimulator
+from ciscox83.montecarlo.core.simulator import Simulator
 
 
-class MontecarloUnitTest(unittest.TestCase):
+class SimulatorUnitTest(unittest.TestCase):
 
     def test_that_can_compute_past_cycle_times(self):
         iterations = [
@@ -15,8 +15,8 @@ class MontecarloUnitTest(unittest.TestCase):
             Iteration(9, "2018/12/21 00:00", "2018/12/28 23:59")
         ]
 
-        epic_simulator = EpicSimulator(iterations)
-        cycle_times = epic_simulator.past_cycle_times
+        simulator = Simulator(iterations)
+        cycle_times = simulator.past_cycle_times
         self.assertEqual(cycle_times,
                          [Decimal(0.71).__round__(2),
                           Decimal(0.62).__round__(2),
@@ -31,8 +31,8 @@ class MontecarloUnitTest(unittest.TestCase):
             Iteration(items_completed_in_iteration, "2018/12/21 00:00", "2018/12/28 23:59")
         ]
 
-        epic_simulator = EpicSimulator(past_iterations)
-        simulated_iterations_length = epic_simulator.simulate(pending_items)
+        simulator = Simulator(past_iterations)
+        simulated_iterations_length = simulator.simulate(pending_items)
         num_of_simulated_iterations = len(simulated_iterations_length)
         self.assertEqual(num_of_simulated_iterations, MONTECARLO_ITERATIONS)
         for i in range(0, num_of_simulated_iterations, 1):

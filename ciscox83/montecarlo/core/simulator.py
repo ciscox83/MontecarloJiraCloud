@@ -5,13 +5,13 @@ from ciscox83.global_properties import MONTECARLO_ITERATIONS
 from ciscox83.global_properties import WORKING_DAYS_IN_ITERATION
 
 
-class EpicSimulator:
+class Simulator:
     def __init__(self, iterations):
         self.iterations = iterations
-        self.past_cycle_times = self.__compute_past_cycle_times()
+        self.past_cycle_times = self.__past_cycle_times()
         pass
 
-    def __compute_past_cycle_times(self):
+    def __past_cycle_times(self):
         cycle_times = []
         for iteration in self.iterations:
             cycle_time = WORKING_DAYS_IN_ITERATION / iteration.get_completed()
