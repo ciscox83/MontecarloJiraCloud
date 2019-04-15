@@ -1,6 +1,6 @@
 import unittest
 
-from ciscox83.montecarlo.core.distribution import Distribution
+from ciscox83.when_it_will_be_done.core.distribution import Distribution
 
 class DistributionUnitTest(unittest.TestCase):
 

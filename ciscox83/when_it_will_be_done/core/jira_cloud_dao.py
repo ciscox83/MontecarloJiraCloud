@@ -2,8 +2,8 @@ import requests
 import json
 import ciscox83.user_properties as user_properties
 import ciscox83.global_properties as properties
-from ciscox83.montecarlo.core.date_manager import DateManager
-from ciscox83.montecarlo.core.iteration import Iteration
+from ciscox83.when_it_will_be_done.core.date_manager import DateManager
+from ciscox83.when_it_will_be_done.core.iteration import Iteration
 
 
 class JiraCloudDao:

@@ -2,8 +2,8 @@ import unittest
 from decimal import *
 
 from ciscox83.global_properties import MONTECARLO_ITERATIONS
-from ciscox83.montecarlo.core.iteration import Iteration
-from ciscox83.montecarlo.core.simulator import Simulator
+from ciscox83.when_it_will_be_done.core.iteration import Iteration
+from ciscox83.when_it_will_be_done.core.simulator import Simulator
 
 
 class SimulatorUnitTest(unittest.TestCase):

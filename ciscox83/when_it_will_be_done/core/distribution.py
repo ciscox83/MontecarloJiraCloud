@@ -1,4 +1,4 @@
-from ciscox83.montecarlo.core.distribution_entry import DistributionEntry
+from ciscox83.when_it_will_be_done.core.distribution_entry import DistributionEntry
 
 
 

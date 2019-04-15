@@ -1,6 +1,6 @@
 import unittest
 
-from ciscox83.montecarlo.core.date_manager import DateManager
+from ciscox83.when_it_will_be_done.core.date_manager import DateManager
 
 class DateManagerUnitTest(unittest.TestCase):
     date_manager = DateManager()

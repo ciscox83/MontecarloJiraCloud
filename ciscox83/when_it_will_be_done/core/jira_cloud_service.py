@@ -1,4 +1,4 @@
-from ciscox83.montecarlo.core.date_manager import DateManager
+from ciscox83.when_it_will_be_done.core.date_manager import DateManager
 
 class JiraCloudService:
     def __init__(self, jira_cloud_dao):
