@@ -2,7 +2,7 @@ from decimal import *
 from random import randrange
 
 from ciscox83.global_properties import MONTECARLO_ITERATIONS
-from ciscox83.global_properties import WORKING_DAYS_IN_ITERATION
+from ciscox83.when_it_will_be_done.core.constants import WORKING_DAYS_IN_ITERATION
 
 
 class Simulator:

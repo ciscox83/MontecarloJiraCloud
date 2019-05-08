@@ -1,6 +1,7 @@
 from datetime import datetime
 from datetime import timedelta
-from ciscox83.global_properties import WORKING_DAYS_IN_ITERATION
+
+from ciscox83.when_it_will_be_done.core.constants import WORKING_DAYS_IN_ITERATION, DAYS_IN_WEEK
 
 
 class DateManager:
@@ -26,4 +27,10 @@ class DateManager:
         a_week_ago = iteration_end_date - timedelta(days=days)
         a_week_ago = a_week_ago.strftime("%Y/%m/%d %H:%M")[:-6]
         return a_week_ago + " 00:00"
+
+    def get_end_date(self, duration, input_date):
+        today = datetime.strptime(input_date, "%Y/%m/%d")
+        days = round(duration * DAYS_IN_WEEK)
+        end_date = today + timedelta(days=days)
+        return end_date.strftime("%Y/%m/%d")
 

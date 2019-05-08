@@ -16,5 +16,13 @@ class DateManagerUnitTest(unittest.TestCase):
         a_week_ago = self.date_manager.get_iteration_start_date("2018/12/27")
         self.assertEqual("2018/12/20 00:00", a_week_ago)
 
+    def test_that_can_convert_duration_into_date(self):
+        duration = 7.2
+        today = "2019/05/08"
+        end_date = self.date_manager.get_end_date(duration, today)
+        expected_end_date = "2019/06/27"
+        self.assertEqual(expected_end_date, end_date)
+
+
 if __name__ == '__main__':
     unittest.main()
