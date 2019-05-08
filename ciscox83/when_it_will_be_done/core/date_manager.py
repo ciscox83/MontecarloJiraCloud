@@ -29,7 +29,7 @@ class DateManager:
         return a_week_ago + " 00:00"
 
     @staticmethod
-    def get_end_date(duration, input_date):
+    def get_project_end_date(duration, input_date):
         today = datetime.strptime(input_date, "%Y/%m/%d")
         days = round(duration * DAYS_IN_WEEK)
         end_date = today + timedelta(days=days)

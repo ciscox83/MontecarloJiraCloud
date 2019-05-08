@@ -19,7 +19,7 @@ class DateManagerUnitTest(unittest.TestCase):
     def test_that_can_convert_duration_into_date(self):
         duration = 7.2
         today = "2019/05/08"
-        end_date = self.date_manager.get_end_date(duration, today)
+        end_date = self.date_manager.get_project_end_date(duration, today)
         expected_end_date = "2019/06/27"
         self.assertEqual(expected_end_date, end_date)
 
