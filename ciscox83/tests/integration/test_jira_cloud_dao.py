@@ -2,8 +2,6 @@ import unittest
 from datetime import datetime
 from ciscox83.when_it_will_be_done.core import jira_cloud_dao
 
-
-# print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
 class JiraCloudDaoTest(unittest.TestCase):
     jira = jira_cloud_dao.JiraCloudDao()
 
