@@ -28,7 +28,8 @@ class DateManager:
         a_week_ago = a_week_ago.strftime("%Y/%m/%d %H:%M")[:-6]
         return a_week_ago + " 00:00"
 
-    def get_end_date(self, duration, input_date):
+    @staticmethod
+    def get_end_date(duration, input_date):
         today = datetime.strptime(input_date, "%Y/%m/%d")
         days = round(duration * DAYS_IN_WEEK)
         end_date = today + timedelta(days=days)
