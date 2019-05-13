@@ -5,10 +5,10 @@ class JiraCloudService:
         self.data = []
         self.jira_cloud_dao = jira_cloud_dao
 
-    def get_iterations(self, last_iteration_end_date, epic, number_of_iterations):
+    def get_iterations(self, last_iteration_end_date, epic_link, number_of_iterations):
         iterations = []
         for i in range(0, number_of_iterations):
-            iterations.append(self.jira_cloud_dao.get_iteration(last_iteration_end_date, epic))
+            iterations.append(self.jira_cloud_dao.get_iteration(last_iteration_end_date, epic_link))
             last_iteration_end_date = DateManager.get_iteration_start_date(last_iteration_end_date)
         return self.__normalise(iterations)
 
