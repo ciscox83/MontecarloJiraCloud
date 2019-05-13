@@ -38,7 +38,7 @@ class SimulatorUnitTest(unittest.TestCase):
 
     def test_that_can_compute_simulated_iterations(self):
         items_completed_in_iteration = 7
-        pending_items = 21
+        pending_items = 7
         past_iterations = [
             Iteration(items_completed_in_iteration, "2018/12/08 00:00", "2018/12/15 23:59"),
             Iteration(items_completed_in_iteration, "2018/12/15 00:00", "2018/12/21 23:59"),
@@ -51,6 +51,24 @@ class SimulatorUnitTest(unittest.TestCase):
         self.assertEqual(num_of_simulated_iterations, MONTECARLO_ITERATIONS)
         for i in range(0, num_of_simulated_iterations, 1):
             self.assertEqual(simulated_iterations_length[i], pending_items / items_completed_in_iteration)
+
+
+    def test_that_can_compute_simulated_iterations_when_are_missing_few_items(self):
+        items_completed_in_iteration = 7
+        pending_items = 1
+        past_iterations = [
+            Iteration(items_completed_in_iteration, "2018/12/08 00:00", "2018/12/15 23:59"),
+            Iteration(items_completed_in_iteration, "2018/12/15 00:00", "2018/12/21 23:59"),
+            Iteration(items_completed_in_iteration, "2018/12/21 00:00", "2018/12/28 23:59")
+        ]
+
+        simulator = Simulator(past_iterations)
+        simulated_iterations_length = simulator.simulate(pending_items)
+        num_of_simulated_iterations = len(simulated_iterations_length)
+        self.assertEqual(num_of_simulated_iterations, MONTECARLO_ITERATIONS)
+        expected_simulated_iteration_length = Decimal('0.1')
+        for i in range(0, num_of_simulated_iterations, 1):
+            self.assertEqual(simulated_iterations_length[i], expected_simulated_iteration_length)
 
 
 

@@ -35,6 +35,6 @@ class Simulator:
                 i = randrange(number_of_past_cycle_times)
                 total_days = total_days + self.past_cycle_times[i]
             average_cycle_time = total_days / number_of_past_cycle_times
-            iteration_length = round(pending_items * average_cycle_time / WORKING_DAYS_IN_ITERATION)
+            iteration_length = round(pending_items * average_cycle_time / WORKING_DAYS_IN_ITERATION, 1)
             simulated_iterations_length.append(iteration_length)
         return simulated_iterations_length
