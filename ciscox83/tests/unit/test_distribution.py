@@ -19,10 +19,17 @@ class DistributionUnitTest(unittest.TestCase):
     def test_that_can_get_unique_iteration_lengths(self):
         distribution = Distribution()
         simulated_iteration_lengths = [4, 2, 3, 3, 3, 1, 1]
-        expected_unique_simulated_iteration_lengths = [4, 2, 3, 1]
+        expected_unique_simulated_iteration_lengths = [1, 2, 3, 4]
         unique_simulated_iteration_lengths = distribution.get_unique_simulated_iteration_lenghts(simulated_iteration_lengths)
         for i in (0, 3):
             self.assertEqual(expected_unique_simulated_iteration_lengths[i], unique_simulated_iteration_lengths[i])
+
+    # def test_that_can_get_cumulative_percentages(self):
+    #     simulated_iteration_lengths = [4, 2, 3, 3, 3, 1, 1]
+    #     distribution = Distribution()
+    #     expected_cumulative_percentages = [29, 43, 86, 100]
+
+
 
 if __name__ == '__main__':
     unittest.main()

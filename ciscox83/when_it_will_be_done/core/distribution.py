@@ -22,4 +22,4 @@ class Distribution:
 
     @staticmethod
     def get_unique_simulated_iteration_lenghts(simulated_iteration_lengths):
-        return list(dict.fromkeys(simulated_iteration_lengths))
+        return sorted(list(dict.fromkeys(simulated_iteration_lengths)))
