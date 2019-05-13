@@ -14,7 +14,11 @@ class Simulator:
     def __past_cycle_times(self):
         cycle_times = []
         for iteration in self.iterations:
-            cycle_time = WORKING_DAYS_IN_ITERATION / iteration.get_completed()
+            completed_iteration = iteration.get_completed()
+            if completed_iteration > 0:
+                cycle_time = WORKING_DAYS_IN_ITERATION / iteration.get_completed()
+            else:
+                cycle_time = 0
             cycle_times.append(Decimal(cycle_time).__round__(2))
         return cycle_times
 

@@ -22,6 +22,20 @@ class SimulatorUnitTest(unittest.TestCase):
                           Decimal(0.62).__round__(2),
                           Decimal(0.56).__round__(2)])
 
+    def test_that_can_compute_past_cycle_times_with_zero_items_completed(self):
+        iterations = [
+            Iteration(7, "2018/12/08 00:00", "2018/12/15 23:59"),
+            Iteration(0, "2018/12/15 00:00", "2018/12/21 23:59"),
+            Iteration(9, "2018/12/21 00:00", "2018/12/28 23:59")
+        ]
+
+        simulator = Simulator(iterations)
+        cycle_times = simulator.past_cycle_times
+        self.assertEqual(cycle_times,
+                         [Decimal(0.71).__round__(2),
+                          Decimal(0.0).__round__(2),
+                          Decimal(0.56).__round__(2)])
+
     def test_that_can_compute_simulated_iterations(self):
         items_completed_in_iteration = 7
         pending_items = 21
