@@ -16,5 +16,13 @@ class DistributionUnitTest(unittest.TestCase):
             self.assertEqual(iteration_length_to_cumulative_percentages[i].get_duration(), expected_durations[i])
             self.assertEqual(iteration_length_to_cumulative_percentages[i].get_cumulative_percentage(), expected_cumulative_percentages[i])
 
+    def test_that_can_get_unique_iteration_lengths(self):
+        distribution = Distribution()
+        simulated_iteration_lengths = [4, 2, 3, 3, 3, 1, 1]
+        expected_unique_simulated_iteration_lengths = [4, 2, 3, 1]
+        unique_simulated_iteration_lengths = distribution.get_unique_simulated_iteration_lenghts(simulated_iteration_lengths)
+        for i in (0, 3):
+            self.assertEqual(expected_unique_simulated_iteration_lengths[i], unique_simulated_iteration_lengths[i])
+
 if __name__ == '__main__':
     unittest.main()

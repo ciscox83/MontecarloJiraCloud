@@ -19,3 +19,7 @@ class Distribution:
             iteration_length_to_cumulative_percentages.append(DistributionEntry(iteration_length, cumulative_percentage))
 
         return iteration_length_to_cumulative_percentages
+
+    @staticmethod
+    def get_unique_simulated_iteration_lenghts(simulated_iteration_lengths):
+        return list(dict.fromkeys(simulated_iteration_lengths))
